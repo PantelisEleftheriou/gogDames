@@ -1,26 +1,15 @@
 
 package gr.peoplecert.gogdames.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class MessageModel {
    private String fromLogin;
-   private String message;
-
-    public String getFromLogin() {
-        return fromLogin;
-    }
-
-    public void setFromLogin(String fromLogin) {
-        this.fromLogin = fromLogin;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-   
-   
-    
+   private String message; 
 }
