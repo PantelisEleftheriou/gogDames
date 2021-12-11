@@ -2,6 +2,9 @@
 package gr.peoplecert.gogdames.controller;
 
 import gr.peoplecert.gogdames.model.MessageModel;
+import gr.peoplecert.gogdames.model.User;
+import gr.peoplecert.gogdames.service.UserServiceInterface;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -14,14 +17,16 @@ public class MessageController {
     @Autowired
     private SimpMessagingTemplate simpMessagingTemplate;
     
-    @MessageMapping("/chat/{to}")
-    public void sendMessage(@DestinationVariable String to,MessageModel message){
-        //boolean isUser = //entityOfUser.getUser().contains(to);
-       // if (isUser) {
-            simpMessagingTemplate.convertAndSend("/topic/messages" + to, message );
-            
-        //}
-        
+    @Autowired
+    private UserServiceInterface userServiceInterface;
+    
+    @MessageMapping("/chat/{id}")
+    public void sendMessage(@DestinationVariable int id,MessageModel message){
+        System.out.println("Send message: " + message + " to -> " + id);
+        Optional<User> isUser = userServiceInterface.getUserById(id);
+        if (isUser.isPresent()) {
+            simpMessagingTemplate.convertAndSend("/topic/messages" + id, message );         
+        }       
     }
     
 }
