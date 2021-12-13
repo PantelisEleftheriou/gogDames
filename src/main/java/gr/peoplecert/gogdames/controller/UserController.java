@@ -11,12 +11,12 @@ public class UserController {
     @GetMapping("/registration/{userName}")
     public ResponseEntity<Void> register(@PathVariable String userName) {
         //Handling registered user request with userName?
-        try {
+       try {
                 //TODO Get a User and validate the name input.
         } catch (Exception exception) {
             return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().build();    
     }
     
     //TODO Get All users to the chat.
