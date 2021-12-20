@@ -1,5 +1,6 @@
 package gr.peoplecert.gogdames.service;
 
+
 import gr.peoplecert.gogdames.model.User;
 import gr.peoplecert.gogdames.repository.UserRepositoryInterface;
 import java.util.List;
@@ -8,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceInterfaceImpl implements UserServiceInterface {
+public class UserServiceInterfaceImpl  {
 
     @Autowired
     UserRepositoryInterface userRepositoryInterface;
@@ -40,4 +41,5 @@ public class UserServiceInterfaceImpl implements UserServiceInterface {
     public void deleteUser(int userId) {
         userRepositoryInterface.deleteById(userId);
     }
+
 }
