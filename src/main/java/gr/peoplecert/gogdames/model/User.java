@@ -3,18 +3,8 @@ package gr.peoplecert.gogdames.model;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -37,31 +27,40 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Integer userId;
-    
+
+    @Size(min=1, max=30, message = "firstname should be from 1 to 30 characters")
     @Column(name = "first_name")
     private String firstName;
-    
+
+    @Size(min=1, max=30, message = "lastname should be from 1 to 30 characters")
     @Column(name = "last_name")
     private String lastName;
-    
+
+//  Email Validation
     @Column(name = "date_of_birth")
     @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
-    
+
+    @Size(min=1, max=30, message = "email should be from 1 to 30 characters")
     @Column(name = "email")
     private String email;
-    
+
+    @Size(min=1, max=70, message = "password should be from 1 to 70 characters")
     @Column(name = "password")
     private String password;
-    
+
+    @Size(min=1, max=30, message = "username should be from 1 to 30 characters")
     @Column(name = "username")
     private String username;
+
     @Lob
+//  MaxSize Validation 4GB.
     @Column(name = "profile_picture")
     private byte[] profilePicture;
-    
+
     @Column(name = "registered")
     private Boolean registered;
     
@@ -121,6 +120,7 @@ public class User implements Serializable {
     }
 
     public void setEmail(String email) {
+        String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}$";
         this.email = email;
     }
 

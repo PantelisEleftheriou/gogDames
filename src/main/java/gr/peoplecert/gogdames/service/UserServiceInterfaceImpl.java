@@ -1,6 +1,5 @@
 package gr.peoplecert.gogdames.service;
 
-
 import gr.peoplecert.gogdames.model.User;
 import gr.peoplecert.gogdames.repository.UserRepositoryInterface;
 import java.util.List;
@@ -9,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceInterfaceImpl  {
+public class UserServiceInterfaceImpl implements UserServiceInterface {
 
     @Autowired
     UserRepositoryInterface userRepositoryInterface;
