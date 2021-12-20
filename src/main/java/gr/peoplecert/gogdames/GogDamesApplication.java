@@ -8,6 +8,7 @@ public class GogDamesApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(GogDamesApplication.class, args);
+        
     }
 
 }

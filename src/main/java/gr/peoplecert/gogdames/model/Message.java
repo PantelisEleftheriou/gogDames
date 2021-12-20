@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package gr.peoplecert.gogdames.domain;
+package gr.peoplecert.gogdames.model;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -11,29 +6,29 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author IoanChatz
- */
 @Entity
-@Table(name = "participant")
+@Table(name = "message")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Participant.findAll", query = "SELECT p FROM Participant p"),
-    @NamedQuery(name = "Participant.findByParticipantId", query = "SELECT p FROM Participant p WHERE p.participantId = :participantId")})
-public class Participant implements Serializable {
+    @NamedQuery(name = "Message.findAll", query = "SELECT m FROM Message m"),
+    @NamedQuery(name = "Message.findByMessageId", query = "SELECT m FROM Message m WHERE m.messageId = :messageId")})
+public class Message implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "participant_id")
-    private Integer participantId;
+    @Column(name = "message_id")
+    private Integer messageId;
+    @Lob
+    @Column(name = "message")
+    private String message;
     @JoinColumn(name = "chat_id", referencedColumnName = "chat_id")
     @ManyToOne
     private ChatRoom chatId;
@@ -41,19 +36,27 @@ public class Participant implements Serializable {
     @ManyToOne
     private User userId;
 
-    public Participant() {
+    public Message() {
     }
 
-    public Participant(Integer participantId) {
-        this.participantId = participantId;
+    public Message(Integer messageId) {
+        this.messageId = messageId;
     }
 
-    public Integer getParticipantId() {
-        return participantId;
+    public Integer getMessageId() {
+        return messageId;
     }
 
-    public void setParticipantId(Integer participantId) {
-        this.participantId = participantId;
+    public void setMessageId(Integer messageId) {
+        this.messageId = messageId;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public ChatRoom getChatId() {
@@ -75,18 +78,18 @@ public class Participant implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (participantId != null ? participantId.hashCode() : 0);
+        hash += (messageId != null ? messageId.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Participant)) {
+        if (!(object instanceof Message)) {
             return false;
         }
-        Participant other = (Participant) object;
-        if ((this.participantId == null && other.participantId != null) || (this.participantId != null && !this.participantId.equals(other.participantId))) {
+        Message other = (Message) object;
+        if ((this.messageId == null && other.messageId != null) || (this.messageId != null && !this.messageId.equals(other.messageId))) {
             return false;
         }
         return true;
@@ -94,7 +97,7 @@ public class Participant implements Serializable {
 
     @Override
     public String toString() {
-        return "gr.peoplecert.gogdames.domain.Participant[ participantId=" + participantId + " ]";
+        return "gr.peoplecert.gogdames.domain.Message[ messageId=" + messageId + " ]";
     }
     
 }

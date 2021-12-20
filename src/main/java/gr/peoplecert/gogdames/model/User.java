@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package gr.peoplecert.gogdames.domain;
+package gr.peoplecert.gogdames.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -23,10 +18,6 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author IoanChatz
- */
 @Entity
 @Table(name = "user")
 @XmlRootElement
@@ -48,30 +39,41 @@ public class User implements Serializable {
     @Basic(optional = false)
     @Column(name = "user_id")
     private Integer userId;
+    
     @Column(name = "first_name")
     private String firstName;
+    
     @Column(name = "last_name")
     private String lastName;
+    
     @Column(name = "date_of_birth")
     @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
+    
     @Column(name = "email")
     private String email;
+    
     @Column(name = "password")
     private String password;
+    
     @Column(name = "username")
     private String username;
     @Lob
     @Column(name = "profile_picture")
     private byte[] profilePicture;
+    
     @Column(name = "registered")
     private Boolean registered;
+    
     @Column(name = "vip")
     private Short vip;
+    
     @ManyToMany(mappedBy = "userSet")
     private Set<Role> roleSet;
+    
     @OneToMany(mappedBy = "userId")
     private Set<Message> messageSet;
+    
     @OneToMany(mappedBy = "userId")
     private Set<Participant> participantSet;
 
