@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class HomePageController {
 
-    @GetMapping("/")
+    @GetMapping("/login")
     public String showHomePage() {
-        return "/register";
+        return "login";
     }
 
 }

@@ -13,7 +13,8 @@ import javax.servlet.http.HttpSession;
 public class VerifyCode extends HttpServlet {
 
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
@@ -22,7 +23,7 @@ public class VerifyCode extends HttpServlet {
 
             String code = request.getParameter("authcode");
 
-            if(code.equals(user.get())){
+            if(code.equals(user.getVerificationCode())){
                 out.println("Verification Done");
             }else{
                 out.println("Incorrect verification code");
@@ -36,4 +37,6 @@ public class VerifyCode extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
+
 }
+

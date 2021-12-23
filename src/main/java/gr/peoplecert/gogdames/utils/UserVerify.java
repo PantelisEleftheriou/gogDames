@@ -34,11 +34,11 @@ public class UserVerify extends HttpServlet {
             boolean test = sm.sendEmail(user);
 
             //check if the email send successfully
-            if (test) {
-                HttpSession session = request.getSession();
+            if(test){
+                HttpSession session  = request.getSession();
                 session.setAttribute("authcode", user);
                 response.sendRedirect("verify.jsp");
-            } else {
+            }else{
                 out.println("Failed to send verification email");
             }
 
@@ -46,9 +46,12 @@ public class UserVerify extends HttpServlet {
     }
 
 
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
+
 }
+

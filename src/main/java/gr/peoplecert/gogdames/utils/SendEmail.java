@@ -2,12 +2,8 @@ package gr.peoplecert.gogdames.utils;
 
 import gr.peoplecert.gogdames.model.User;
 
-import java.net.Authenticator;
-import java.net.PasswordAuthentication;
 import java.util.Properties;
 import java.util.Random;
-import javax.jms.Message;
-import javax.jms.Session;
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
@@ -63,7 +59,7 @@ public class SendEmail {
             mess.setSubject("User Email Verification");
 
             //set message text
-            mess.setText("Registered successfully.Please verify your account using this code: " + user.getCode());
+            mess.setText("Registered successfully.Please verify your account using this code: " + user.getVerificationCode());
             //send the message
             Transport.send(mess);
 
@@ -75,3 +71,4 @@ public class SendEmail {
 
         return test;
     }
+}
