@@ -1,0 +1,433 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 13, 2021, 9:54:25 PM
+    Author     : Pantelis
+*/
+body {
+    background: linear-gradient( to top, lightblue,midnightblue);
+}
+
+.search_form {
+    width: 50%;
+}
+
+#sidebar {
+    background: linear-gradient( to top, lightblue,midnightblue);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    box-shadow: -1px 0 0 rgba(0,0,0,.1);
+    max-width: 5vw;
+}
+
+#sidebar .nav-item {
+    text-align: center;
+    padding: 25px 0;
+}
+
+#sidebar .nav-item a {
+    color: royalblue;
+}
+
+#sidebar .nav-item a.active {
+    color: black;
+}
+
+.vertical_nav {
+    margin-top: 20vh;
+}
+
+.logo {
+    max-height: 100px;
+    margin: 10px 15px;
+    border-radius: 50%;
+}
+
+a.navbar-brand {
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+section {
+    margin: 10px;
+}
+
+.main {
+    padding: 2rem;
+    padding-top: calc(4rem + 74px);
+}
+
+.main .first-row, .main .second-row {
+    padding-bottom: 3rem;
+}
+
+.main .row .card {
+    height: 100%;
+}
+
+.card {
+    background:  whitesmoke;
+    border: 0;
+    box-shadow: 2px 0 10px rgba(0,0,0,.1);
+    max-height: 100%;
+}
+
+.card-header {
+    background: linear-gradient(40deg, #2096ff, #05ffa3)!important;
+    font-weight: 700;
+    padding: 20px;
+}
+
+.card-body {
+    padding: 0,5rem;
+    font-size: 12px;
+}
+
+#recently-posted .card img {
+    padding-top: 0,5rem;
+}
+
+.stats .card-text {
+    padding-top: 5px;
+    padding-left: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.img-container {
+    height: 120px;
+    width: 120px;
+    text-emphasis: center;
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+}
+
+.card-img-top {
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+}
+
+.badge {
+    font-size: 18px;
+}
+
+.table-wrapper {
+    background: whitesmoke ;
+    padding: 20px 25px;
+    margin: 30px 0;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px black;
+}
+
+.table-title {
+    padding-bottom: 15px;
+    background: linear-gradient(40deg, #2096ff, #05ffa3)!important;
+    color: whitesmoke;
+    padding: 16px 30px;
+    margin: -20px -25px 10px;
+    border-radius: 3px 3px 0 0;
+    box-shadow: 0 1px 1px black;
+}
+.table-title h2 {
+    margin: 5px 0 0;
+    font-size: 24px;
+}
+.table-title .btn-group {
+    float: right;
+}
+
+.table-title .btn {
+    color: whitesmoke;
+    float: right;
+    font-size: 14px;
+    border: none;
+    min-width: 50px;
+    border-radius: 3px;
+    outline: none;
+    margin-left: 10px;
+    box-shadow: 0 1px 1px black;
+}
+
+.table-title .btn i {
+    float: left;
+    font-size: 21px;
+    margin-right: 5px;
+}
+
+.table-title .btn span {
+    float: left;
+    margin-top: 2px;
+}
+
+table.table tr th,table.table tr td {
+    border-color: whitesmoke;
+    padding: 12px 15px;
+    vertical-align: middle;
+}
+
+table.table tr th:last-child {
+    width: 60px;
+}
+
+table.table tr th:last-child {
+    width: 100px;
+}
+
+table.table-striped tbody tr:nth-of-type(odd) {
+    background-color: whitesmoke;
+}
+
+table.table th i {
+    font-size: 14px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+table.table td:last-child i {
+    opacity: 0.9;
+    font-size: 22px;
+    margin: 0 5px;
+}
+
+table.table td a {
+    font-weight: bold;
+    color: grey;
+    display: inline-block;
+    text-decoration: none;
+    outline: none !important;
+}
+
+table.table td a:hover {
+    color: #2196F3;
+}
+
+table.table td a.edit {
+    color: black;
+}
+
+table.table td a.delete {
+    color: red;
+}
+
+table.table .avatar {
+    border-radius: 1px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.pagination {
+    float: right;
+    margin: 0 0 5px;
+}
+
+.pagination li a {
+    border: none;
+    font-size: 14px;
+    min-width: 30px;
+    min-height: 30px;
+    color: #999;
+    margin: 0 2px;
+    line-height: 30px;
+    border-radius: 1px !important;
+    text-align: center;
+    padding: 0 6px;
+}
+
+.pagination li a:hover {
+    color: #667;
+}
+
+.pagination li.active a, .pagination li.active a.page-link {
+    background: #03a9f4;
+}
+
+.pagination li.active a:hover {
+    background: #03a9f4;
+}
+
+.pagination li.disabled i {
+    color: #ccc;
+}
+
+.pagination li i {
+    font-size: 16px;
+    padding-top: 6px;
+}
+
+.hint-text {
+    float: left;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.custom-checkbox {
+    position: relative;
+}
+
+.custom-checkbox input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    margin: 5px 0 0 3px;
+    z-index: 9;
+}
+
+.custom-checkbox label::before {
+    width: 18px;
+    height: 18px;
+}
+
+.custom-checkbox label::before {
+    content: "";
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    background: #fff;
+    border: 1px solid #bbb;
+    border-radius: 1px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + label::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 3px;
+    width: 6px;
+    height: 11px;
+    border: solid #000;
+    border-width: 0 3px 3px 0;
+    transform: inherit;
+    z-index: 3;
+    transform: rotateZ(45deg);
+}
+
+.custom-checkbox input[type="checkbox"]:checked + label::before {
+    border-color: #03a9f4;
+    background: #03a9f4;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + label::after {
+    border-color: #fff;
+}
+
+.custom-checkbox input[type="checkbox"]:disabled + label::before {
+    color: #b8b8b8;
+    cursor: auto;
+    background: #ddd;
+}
+
+.modal .modal-dialog {
+    max-width: 400px;
+}
+
+.modal .modal-header, .modal .modal-body, .modal .modal-footer {
+    padding: 20px 30px;
+}
+
+.modal .modal-content {
+    border-radius: 1px;
+}
+
+.modal .modal-footer {
+    background: white;
+    border-radius: 0 0 1px 1px;
+}
+
+.modal .modal-title {
+    display: inline-block;
+}
+
+.modal .form-control {
+    border-radius: 1px;
+    box-shadow: none;
+    border-color: #dddddd;
+}
+
+.modal textarea.form-control {
+    resize: vertical;
+}
+
+.modal .btn {
+    border-radius: 1px;
+    min-width: 100px;
+}
+
+.modal form label {
+    font-weight: normal;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.error{
+    color:red;
+    font-weight: bold;
+}
