@@ -53,4 +53,5 @@ public class UserServiceInterfaceImpl implements UserServiceInterface {
         oldUser.setUsername(newUser.getUsername());
         userRepositoryInterface.save(newUser);
     }
+
 }

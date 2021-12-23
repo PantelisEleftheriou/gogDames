@@ -13,5 +13,5 @@ public interface UserServiceInterface  {
     Optional<User> getUserById(int id);
     List<User> findAll();
     void deleteUser(int userId);
-    void updateUser (User user, int userId);
+    void updateUser (User newUser, int userId);
 }
