@@ -30,7 +30,7 @@ public class HomePageController {
     }
 
     @PostMapping("/VerifyUser")
-    public String registerUser(User user, Model model, HttpServletRequest request) throws MessagingException, UnsupportedEncodingException {
+    public String registerUser(User user, Model model, HttpServletRequest request) throws MessagingException, UnsupportedEncodingException, javax.mail.MessagingException {
         service.registerUser(user);
 
         String siteUrl = Utility.getSiteUrl(request);
