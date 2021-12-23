@@ -11,12 +11,10 @@ import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMailMessage;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -29,9 +27,6 @@ public class UserServiceInterfaceImpl implements UserServiceInterface {
 
     @Autowired
     private JavaMailSender mailSender;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     @Override
     public User addUser(User user) {
@@ -52,9 +47,13 @@ public class UserServiceInterfaceImpl implements UserServiceInterface {
     }
 
 
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
     @Override
     public User registerUser(User user) {
-//        passwordEncoder(user);
+        passwordEncoder();
         user.setRegistered(false);
 
         String randomCode = RandomString.make(64);
