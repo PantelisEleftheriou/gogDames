@@ -2,19 +2,24 @@ package gr.peoplecert.gogdames.service;
 
 import gr.peoplecert.gogdames.model.User;
 import gr.peoplecert.gogdames.repository.UserRepositoryInterface;
+
+import java.io.UnsupportedEncodingException;
+import java.util.List;
+import java.util.Optional;
+
 import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMailMessage;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import java.io.UnsupportedEncodingException;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceInterfaceImpl implements UserServiceInterface {
