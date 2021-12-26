@@ -46,7 +46,6 @@ public class UserServiceInterfaceImpl implements UserServiceInterface {
         }
     }
 
-
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }

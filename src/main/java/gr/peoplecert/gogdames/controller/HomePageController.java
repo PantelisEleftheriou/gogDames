@@ -6,31 +6,27 @@ import gr.peoplecert.gogdames.utils.Utility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.MessagingException;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 
-
 @Controller
-@RequestMapping("/")
 public class HomePageController {
-
 
     @Autowired
     UserServiceInterfaceImpl service;
 
-
     @GetMapping("/login")
-    public String showHomePage() {
-        return "login";
+    public String showLoginPage(ModelMap mm) {
+        mm.addAttribute("newuser", new User());
+        return "register";
     }
 
-    @PostMapping("/VerifyUser")
-    public String registerUser(User user, Model model, HttpServletRequest request) throws MessagingException, UnsupportedEncodingException, javax.mail.MessagingException {
+    @PostMapping("/registeruser")
+    public String registerUser(@ModelAttribute("newuser") User user, ModelMap model, HttpServletRequest request) throws MessagingException, UnsupportedEncodingException, javax.mail.MessagingException {
+
         service.registerUser(user);
 
         String siteUrl = Utility.getSiteUrl(request);
@@ -41,4 +37,11 @@ public class HomePageController {
         return "verify";
     }
 
+    @GetMapping("/verification")
+    @ResponseBody
+    public String verified(ModelMap mm,  User user) {
+        mm.addAttribute("verifyuser", user);
+
+        return "Your Registation completed!!!";
+    }
 }
