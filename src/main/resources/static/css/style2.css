@@ -208,32 +208,7 @@ label {
   
 }
 
-.textbox {
-    width: 100%;
-    overflow: hidden;
-    font-size: 20px;
-    padding: 8px 0;
-    margin: 8px 0;
-    border-bottom: 2px solid #854a94;
-    
-}
-.textbox i{
-    width: 26 px;
-    float:left;
-    text-align: center;
 
-}
-.textbox input{
-    border: none;
-    outline: none;
-    background: none;
-    color: white;
-    font-size: 18px;
-    width: 80%px;
-    float: left;
-    margin: 0 10px;
-
-}
 
 
 
