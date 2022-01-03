@@ -25,11 +25,11 @@
     <div class="frame">
         <div class="nav">
             <ul class="links">
-                <li class="signin-inactive"> <a class="btn" href="login1.html">Sign in</a></li>
-                <li class="signup-active"><a class="btn" href="register.html">Sign up</a></li>
+                <li class="signin-inactive"> <a class="btn" href="login1">Sign in</a></li>
+                <li class="signup-active"><a class="btn" href="register">Sign up</a></li>
             </ul>
         </div>
-        <form onSubmit="registration(event)"class="form-signin" action="" method="post" name="form">
+        <form onSubmit="registration(event)" class="form-signin" action="registeruser" method="post" name="form">
             <%--@declare id="password"--%><%--@declare id="first_name"--%><%--@declare id="last_name"--%><%--@declare id="date_of_birth"--%><%--@declare id="email"--%><%--@declare id="username"--%><label for="first_name"></label>
             <input class="form-styling" type="text"  name="first_name" placeholder="First Name" id="t1"/>
             <label for="last_name"></label>
@@ -47,6 +47,4 @@
     </div>
 </div>
 </body>
-
-
 </html>

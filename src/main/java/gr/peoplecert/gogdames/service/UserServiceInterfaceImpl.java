@@ -2,14 +2,8 @@ package gr.peoplecert.gogdames.service;
 
 import gr.peoplecert.gogdames.model.User;
 import gr.peoplecert.gogdames.repository.UserRepositoryInterface;
-
-import java.io.UnsupportedEncodingException;
-import java.util.List;
-import java.util.Optional;
-
 import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,6 +12,9 @@ import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import java.io.UnsupportedEncodingException;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceInterfaceImpl implements UserServiceInterface {
@@ -29,13 +26,31 @@ public class UserServiceInterfaceImpl implements UserServiceInterface {
     private JavaMailSender mailSender;
 
     @Override
-    public void addUser(User user) {
+    public User addUser(User user) {
+        return null;
+    }
+
+    @Override
+    public User getByUsername(String username, String password) {
+        User user = userRepositoryInterface.findByUsername(username);
+        if (!user.getUsername().isEmpty()) {
+            if (!user.getPassword().equals(password)) {
+                return user;
+            } else {
+                System.out.println("wrong password");
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void addUser1(User user) {
         user.setRegistered(Boolean.TRUE);
         userRepositoryInterface.save(user);
     }
 
     @Override
-    public Optional<User> getUserById(int id) {      
+    public Optional<User> getUserById(int id) {
         try {
             Optional<User> optionalUser = userRepositoryInterface.findById(id);
             return Optional.of(optionalUser.get());
@@ -89,6 +104,7 @@ public class UserServiceInterfaceImpl implements UserServiceInterface {
         return userRepositoryInterface.findAll();
     }
 
+
     @Override
     public void deleteUser(int userId) {
         userRepositoryInterface.deleteById(userId);
@@ -96,7 +112,7 @@ public class UserServiceInterfaceImpl implements UserServiceInterface {
 
     @Override
     public void updateUser(User newUser, int userId) {
-        User oldUser=userRepositoryInterface.findById(userId).get();
+        User oldUser = userRepositoryInterface.findById(userId).get();
         oldUser.setFirstName(newUser.getFirstName());
         oldUser.setLastName(newUser.getLastName());
         oldUser.setDateOfBirth(newUser.getDateOfBirth());

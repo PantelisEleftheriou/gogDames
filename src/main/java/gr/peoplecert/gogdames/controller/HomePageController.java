@@ -18,10 +18,15 @@ public class HomePageController {
     @Autowired
     UserServiceInterfaceImpl service;
 
-    @GetMapping("/login")
-    public String showLoginPage(ModelMap mm) {
+    @GetMapping("/")
+    public String showLoginPage() {
+        return "login";
+    }
+
+    @GetMapping("/register")
+    public String showRegisterPage(ModelMap mm) {
         mm.addAttribute("newuser", new User());
-        return "login1";
+        return "register";
     }
 
     @PostMapping("/registeruser")

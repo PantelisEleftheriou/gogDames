@@ -1,16 +1,17 @@
 package gr.peoplecert.gogdames.configuration;
 
+import gr.peoplecert.gogdames.model.MyUserPrincipal;
+import gr.peoplecert.gogdames.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
 
 import javax.sql.DataSource;
 
@@ -21,17 +22,33 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     DataSource dataSource;
 
+    @Autowired
+    MyUserDetailsService myUserDetailsService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .cors()
+                .and()
+                .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/registeruser","/verify", "/verification/{id}").permitAll()
+                .antMatchers( "/registeruser", "/verify", "/verification/{id}", "/style2.css", "/register", "/login.js", "admin/nav", "admin/modifyGames", "admin/modifyUsers", "/styles.css").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login")// add css
-                .permitAll();
+//                .loginPage("/")
+                .permitAll()
+//                .loginProcessingUrl("/gogDames_war/login")
+                .defaultSuccessUrl("/admin/mainPage");
     }
 
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(myUserDetailsService);
+    }
+
+    @Bean
+    public PasswordEncoder bCryptPasswordEncoder() {
+        return NoOpPasswordEncoder.getInstance();
+    }
 }

@@ -1,17 +1,13 @@
-
-
 function registration(event)
 {
     event.preventDefault()
 
     var fname= document.getElementById("t1").value;
     var lname= document.getElementById("t2").value;
-    var dob= document.getElementById("t3").value;
+    // var dob= document.getElementById("t3").value;
     var email= document.getElementById("t4").value;
     var pwd= document.getElementById("t5").value;
-    //var cpwd= document.getElementById("t7").value;
     var uname= document.getElementById("t6").value;
-
 
     var pwd_expression = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
     var letters = /^[A-Za-z]+$/;
@@ -19,7 +15,7 @@ function registration(event)
 
     if(fname=='')
     {
-        alert('Please enter your  first name');
+        alert('Please enter your first name');
     }
     else if(!letters.test(fname))
     {
@@ -57,11 +53,11 @@ function registration(event)
     {
         alert ('Upper case, Lower case, Special character and Numeric letter are required in Password filed');
     }
-    else if(document.getElementById("t6").value.length < 6)
+    else if(document.getElementById("t5").value.length < 6)
     {
         alert ('Password minimum length is 6');
     }
-    else if(document.getElementById("t6").value.length > 12)
+    else if(document.getElementById("t5").value.length > 12)
     {
         alert ('Password max length is 12');
     }

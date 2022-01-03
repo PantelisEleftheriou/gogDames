@@ -20,7 +20,10 @@ public class UserController {
         }
         return ResponseEntity.ok().build();    
     }
-    @GetMapping("/login") public String showHomePage(Model model) { model.addAttribute("user", new User()); return "register"; }
+//    @GetMapping("/login")
+//    public String showHomePage(Model model) {
+//        model.addAttribute("user", new User());
+//        return "register"; }
     //TODO Get All users to the chat.
    /* @GetMapping("/getAllUsers")
     public Set<String> getAllUsers(){

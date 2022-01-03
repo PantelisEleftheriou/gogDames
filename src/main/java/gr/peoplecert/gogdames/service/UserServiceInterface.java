@@ -14,6 +14,8 @@ public interface UserServiceInterface {
 
     User addUser(User user);
 
+    User getByUsername(String username, String password);
+
     void addUser1(User user);
 
     Optional<User> getUserById(int id);
