@@ -29,13 +29,13 @@ public class UserServiceInterfaceImpl implements UserServiceInterface {
     private JavaMailSender mailSender;
 
     @Override
-    public User addUser(User user) {
+    public void addUser(User user) {
+        user.setRegistered(Boolean.TRUE);
         userRepositoryInterface.save(user);
-        return user;
     }
 
     @Override
-    public Optional<User> getUserById(int id) {
+    public Optional<User> getUserById(int id) {      
         try {
             Optional<User> optionalUser = userRepositoryInterface.findById(id);
             return Optional.of(optionalUser.get());
@@ -92,6 +92,18 @@ public class UserServiceInterfaceImpl implements UserServiceInterface {
     @Override
     public void deleteUser(int userId) {
         userRepositoryInterface.deleteById(userId);
+    }
+
+    @Override
+    public void updateUser(User newUser, int userId) {
+        User oldUser=userRepositoryInterface.findById(userId).get();
+        oldUser.setFirstName(newUser.getFirstName());
+        oldUser.setLastName(newUser.getLastName());
+        oldUser.setDateOfBirth(newUser.getDateOfBirth());
+        oldUser.setEmail(newUser.getEmail());
+        oldUser.setPassword(newUser.getPassword());
+        oldUser.setUsername(newUser.getUsername());
+        userRepositoryInterface.save(newUser);
     }
 
 }

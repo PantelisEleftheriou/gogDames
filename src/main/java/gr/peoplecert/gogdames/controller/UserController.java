@@ -1,6 +1,8 @@
 package gr.peoplecert.gogdames.controller;
 
+import gr.peoplecert.gogdames.model.User;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +20,7 @@ public class UserController {
         }
         return ResponseEntity.ok().build();    
     }
-    
+    @GetMapping("/login") public String showHomePage(Model model) { model.addAttribute("user", new User()); return "register"; }
     //TODO Get All users to the chat.
    /* @GetMapping("/getAllUsers")
     public Set<String> getAllUsers(){

@@ -9,9 +9,12 @@ import java.util.List;
 import java.util.Optional;
 
 
+
 public interface UserServiceInterface {
 
     User addUser(User user);
+
+    void addUser1(User user);
 
     Optional<User> getUserById(int id);
 
@@ -22,4 +25,5 @@ public interface UserServiceInterface {
     List<User> findAll();
 
     void deleteUser(int userId);
+    void updateUser (User newUser, int userId);
 }

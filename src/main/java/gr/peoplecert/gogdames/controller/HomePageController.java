@@ -21,7 +21,7 @@ public class HomePageController {
     @GetMapping("/login")
     public String showLoginPage(ModelMap mm) {
         mm.addAttribute("newuser", new User());
-        return "register";
+        return "login1";
     }
 
     @PostMapping("/registeruser")
@@ -36,6 +36,7 @@ public class HomePageController {
 
         return "verify";
     }
+
 
     @GetMapping("/verification")
     @ResponseBody
