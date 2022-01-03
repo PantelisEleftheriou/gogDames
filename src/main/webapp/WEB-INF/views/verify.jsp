@@ -12,12 +12,6 @@
     <form action="verification/{id}" method="post">
         <input type="text" name="authcode" >
         <input type="submit" value="verify">
-
-        <% if ( user.getVerificationCode().equals(authcode) ) {
-            user.setRegistered(1);
-        }else {
-            System.out.println("Wrong Vification code");  } %>
-
     </form>
 </body>
 </html>
