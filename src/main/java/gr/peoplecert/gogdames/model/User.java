@@ -67,7 +67,10 @@ public class User implements Serializable {
     
     @Column(name = "vip")
     private Short vip;
-    
+
+    @Column(name = "verification_code")
+    private String verificationCode;
+
     @ManyToMany(mappedBy = "userSet")
     private Set<Role> roleSet;
     
@@ -139,6 +142,14 @@ public class User implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getVerificationCode() {
+        return verificationCode;
+    }
+
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
     }
 
     public byte[] getProfilePicture() {
