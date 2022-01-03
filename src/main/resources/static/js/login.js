@@ -53,18 +53,10 @@ function registration(event)
     {
         alert('Please enter Password');
     }
-        //	else if(cpwd=='')
-        //	{
-        //		alert('Enter Confirm Password');
-    //	}
     else if(!pwd_expression.test(pwd))
     {
         alert ('Upper case, Lower case, Special character and Numeric letter are required in Password filed');
     }
-    /*else if(pwd != cpwd)
-    {
-        alert ('Password not Matched');
-    }*/
     else if(document.getElementById("t6").value.length < 6)
     {
         alert ('Password minimum length is 6');
