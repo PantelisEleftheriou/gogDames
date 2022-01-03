@@ -77,7 +77,6 @@ public class AdminController {
 
     @PostMapping("/updateUser/{userId}")
     public String update(User user, @PathVariable("userId") int userId) {
-        System.out.println("s");
         userServiceInterface.updateUser(user, userId);
         return "redirect:/admin/modifyUsers";
     }

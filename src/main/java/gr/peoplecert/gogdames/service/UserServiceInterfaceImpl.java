@@ -14,10 +14,9 @@ public class UserServiceInterfaceImpl implements UserServiceInterface {
     UserRepositoryInterface userRepositoryInterface;
 
     @Override
-    public User addUser(User user) {
+    public void addUser(User user) {
         user.setRegistered(Boolean.TRUE);
         userRepositoryInterface.save(user);
-        return user;
     }
 
     @Override

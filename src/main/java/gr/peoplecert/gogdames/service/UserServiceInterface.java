@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface UserServiceInterface  {
     
-    User addUser(User user);
+    void addUser(User user);
     Optional<User> getUserById(int id);
     List<User> findAll();
     void deleteUser(int userId);

@@ -30,6 +30,7 @@
     </head>
 
     <body>
+        <%@ include file="nav.jsp" %>
         <div class="main col-11 container">
             <div class="table-wrapper">
                 <div class="table-title">
@@ -42,7 +43,6 @@
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
-        <%@ include file="nav.jsp" %>
                             <th>Game</th>
                             <th>ID</th>
                             <th>Name</th>
