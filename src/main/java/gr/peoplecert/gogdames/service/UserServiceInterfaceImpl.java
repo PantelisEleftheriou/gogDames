@@ -20,7 +20,7 @@ public class UserServiceInterfaceImpl implements UserServiceInterface {
     }
 
     @Override
-    public Optional<User> getUserById(int id) {
+    public Optional<User> getUserById(int id) {      
         try {
             Optional<User> optionalUser = userRepositoryInterface.findById(id);
             return Optional.of(optionalUser.get());
@@ -40,5 +40,4 @@ public class UserServiceInterfaceImpl implements UserServiceInterface {
     public void deleteUser(int userId) {
         userRepositoryInterface.deleteById(userId);
     }
-
 }
