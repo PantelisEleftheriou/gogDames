@@ -38,7 +38,7 @@
             <input class="form-styling" type="date" name="date_of_birth" placeholder="" id="t3"/>
             <label for="email"></label>
             <input class="form-styling" type="text" name="email" placeholder="E-mail" id="t4" />
-            <label for="password"></label>
+            <label for="password">Use a combination of uppercase letters, lower case letters, numbers, and special characters for your Password</label>
             <input class="form-styling" type="password" name="password" placeholder="Password" id="t5"/>
             <label for="username"></label>
             <input class="form-styling" type="text" name="username" placeholder="Username" id="t6" />
