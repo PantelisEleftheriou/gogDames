@@ -40,8 +40,8 @@ public class User implements Serializable {
     @Column(name = "last_name")
     private String lastName;
 
-//  Email Validation
     @DateTimeFormat(pattern="yyyy-MM-dd")
+
     @Column(name = "date_of_birth")
     @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
@@ -59,7 +59,6 @@ public class User implements Serializable {
     private String username;
 
     @Lob
-//  MaxSize Validation 4GB.
     @Column(name = "profile_picture")
     private byte[] profilePicture;
 

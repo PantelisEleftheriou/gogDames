@@ -38,7 +38,6 @@ public class AdminController {
 
     @GetMapping("/mainPage")
     public String admin() {
-
         return "admin";
     }
 
