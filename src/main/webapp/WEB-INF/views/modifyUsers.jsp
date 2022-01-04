@@ -90,34 +90,34 @@
                                 <td>
                                     <a href="#editUserModal" onclick="editClick(${user.userId})" class="edit" data-bs-toggle="modal"><i class="material-icons"
                                                                                                                                         data-bs-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="#deleteUserModal" class="delete" data-bs-toggle="modal"><i class="material-icons"
+                                    <a href="#deleteUserModal" onclick="passTheIdToModal(${user.userId})" class="delete" data-bs-toggle="modal"><i class="material-icons"
                                                                                                         data-bs-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                 </td>
                             </tr>
-                            <!-- Delete Modal HTML -->
-                        <div id="deleteUserModal" class="modal fade">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <form>
-                                        <div class="modal-header">
-                                            <h4 class="modal-title">Delete User</h4>
-                                            <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true">&times;</button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Are you sure you want to delete these Records?</p>
-                                            <p class="text-danger"><small>This action cannot be undone.</small></p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <input type="button" class="btn btn-default" data-bs-dismiss="modal" value="Cancel">
-                                            <a href="/admin/deleteUser/${user.userId}"> 
-                                                <input type="button" class="btn btn-danger" value="Delete">
-                                            </a>
-                                        </div>
-                                    </form>
-                                </div>
+                        </c:forEach>
+                        <!-- Delete Modal HTML -->
+                    <div id="deleteUserModal" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <form>
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Delete User</h4>
+                                        <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Are you sure you want to delete these Records?</p>
+                                        <p class="text-danger"><small>This action cannot be undone.</small></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <input type="button" class="btn btn-default" data-bs-dismiss="modal" value="Cancel">
+                                        <a id="deleteButton"> 
+                                            <input type="button" class="btn btn-danger" value="Delete">
+                                        </a>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                    </c:forEach>
+                    </div>
                     </tbody>
                 </table>
                 <!-- Edit Modal HTML -->
@@ -241,7 +241,12 @@
                     $("#usernameEdit").val(result.username);
                     $("#userSubmit").attr("action", "updateUser/" + result.userId);
                 });
-            }</script>
+            }
+                
+                function passTheIdToModal(userId) {
+                    $("#deleteButton").attr("href", "/admin/deleteUser/" + userId)
+                }
+        </script>
 
         <script>
             function registration(event)
