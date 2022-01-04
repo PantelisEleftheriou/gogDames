@@ -71,7 +71,7 @@ public class User implements Serializable {
     @Column(name = "verification_code")
     private String verificationCode;
 
-    @ManyToMany(mappedBy = "userSet")
+    @ManyToMany(mappedBy = "userSet", fetch = FetchType.EAGER)
     private Set<Role> roleSet;
     
     @OneToMany(mappedBy = "userId")

@@ -25,7 +25,7 @@
     <div class="frame">
         <div class="nav">
             <ul class="links">
-                <li class="signin-inactive"> <a class="btn" href="login1">Sign in</a></li>
+                <li class="signin-inactive"> <a class="btn" href="login">Sign in</a></li>
                 <li class="signup-active"><a class="btn" href="register">Sign up</a></li>
             </ul>
         </div>
