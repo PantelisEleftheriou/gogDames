@@ -94,7 +94,7 @@
             </div>
         </div>
 
-        <div id="footer" class="fixed-bottom">
+        <div style="position:fixed; bottom:0; right:0; font-weight:bold;">
             (c) Copyright 2021 - gogD Solutions
         </div>
 
