@@ -91,7 +91,7 @@
                                     <a href="#editUserModal" onclick="editClick(${user.userId})" class="edit" data-bs-toggle="modal"><i class="material-icons"
                                                                                                                                         data-bs-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                     <a href="#deleteUserModal" onclick="passTheIdToModal(${user.userId})" class="delete" data-bs-toggle="modal"><i class="material-icons"
-                                                                                                        data-bs-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                                                                                                                                   data-bs-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -219,7 +219,7 @@
             </div>
         </div>
 
-        <div id="footer" class="fixed-bottom">
+        <div style="position:fixed; bottom:0; right:0; font-weight:bold;">
             (c) Copyright 2021 - gogD Solutions
         </div>
 
@@ -242,10 +242,10 @@
                     $("#userSubmit").attr("action", "updateUser/" + result.userId);
                 });
             }
-                
-                function passTheIdToModal(userId) {
-                    $("#deleteButton").attr("href", "/admin/deleteUser/" + userId)
-                }
+
+            function passTheIdToModal(userId) {
+                $("#deleteButton").attr("href", "/admin/deleteUser/" + userId)
+            }
         </script>
 
         <script>

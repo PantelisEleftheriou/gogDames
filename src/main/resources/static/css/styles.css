@@ -8,7 +8,11 @@ and open the template in the editor.
     Author     : Pantelis
 */
 body {
-    background: linear-gradient( to top, lightblue,midnightblue);
+    min-height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: linear-gradient( to top, lightblue,midnightblue) fixed;
 }
 
 .search_form {
