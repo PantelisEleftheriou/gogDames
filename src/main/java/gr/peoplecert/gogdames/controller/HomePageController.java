@@ -3,13 +3,17 @@ package gr.peoplecert.gogdames.controller;
 import gr.peoplecert.gogdames.model.User;
 import gr.peoplecert.gogdames.service.UserServiceInterfaceImpl;
 import gr.peoplecert.gogdames.utils.Utility;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.MessagingException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
+
 import java.io.UnsupportedEncodingException;
 
 @Controller

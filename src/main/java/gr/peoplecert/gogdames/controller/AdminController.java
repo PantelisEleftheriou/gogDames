@@ -39,9 +39,19 @@ public class AdminController {
 
     @GetMapping("/mainPage")
     public String admin() {
-
         return "admin";
     }
+
+    @GetMapping("/getChat")
+    public String getChat() {
+        return "chat";
+    }
+
+    @GetMapping("/getTemp")
+    public String getTemp() {
+        return "temp";
+    }
+
 
     @GetMapping("/modifyGames")
     public String games() {
