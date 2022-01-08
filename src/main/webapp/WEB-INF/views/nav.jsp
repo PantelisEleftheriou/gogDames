@@ -81,7 +81,7 @@
                     </ul>
                 </nav>
             </div>
-        </div>                            
+        </div>
 
         <script>
             // Get the container element
