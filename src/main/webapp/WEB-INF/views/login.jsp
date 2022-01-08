@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gogDames</title>
-    <link rel="stylesheet" type="text/css" href="style2.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/style2.css"/>
     <link rel="stylesheet" type="text/js" href="../login.js"/>
 </head>
 <body>
@@ -21,7 +21,7 @@
     <div class="frame">
         <div class="nav">
             <ul class="links">
-                <li class="signin-active"><a class="btn" href="login">Sign in</a></li>
+                <li class="signin-active"><a class="btn" href="/">Sign in</a></li>
                 <li class="signup-inactive"><a class="btn" href="register">Sign up </a></li>
             </ul>
         </div>

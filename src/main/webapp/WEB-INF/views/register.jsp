@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style2.css">
+    <link rel="stylesheet" type="text/css" href="/css/style2.css"/>
 
     <script src="login.js"></script>
 
@@ -25,7 +25,7 @@
     <div class="frame">
         <div class="nav">
             <ul class="links">
-                <li class="signin-inactive"> <a class="btn" href="login">Sign in</a></li>
+                <li class="signin-inactive"> <a class="btn" href="/">Sign in</a></li>
                 <li class="signup-active"><a class="btn" href="register">Sign up</a></li>
             </ul>
         </div>
