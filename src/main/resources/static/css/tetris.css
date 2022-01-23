@@ -1,0 +1,28 @@
+body {
+  margin-top: 10%;
+  margin-left: 30%;
+  font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+  font-size: .85em;
+  background-color: #011ea0;
+  color: #ffffff;
+}
+
+h1 {
+  color: #ffffff;
+  text-shadow: 3px 3px 5px #006dcc;
+}
+
+.container {
+  width: 500px;
+  margin-right: 50px;
+}
+
+.description {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.tetrisCanvas {
+  box-shadow: 3px 3px 5px #ffffff;
+  outline: none;
+}

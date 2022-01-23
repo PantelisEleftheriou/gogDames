@@ -9,7 +9,7 @@
 </head>
 <body>
 <span>We already send a verification  code to your email.</span>
-    <form action="verification/{id}" method="post">
+    <form action="verification" method="post">
         <input type="text" name="authcode" >
         <input type="submit" value="verify">
     </form>

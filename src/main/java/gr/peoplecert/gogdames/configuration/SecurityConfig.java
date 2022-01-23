@@ -32,14 +32,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers( "/gogDames_war/login","/registeruser", "/verify", "/verification/{id}", "/style2.css", "/register", "/login.js", "/admin/nav", "/admin/modifyGames", "/admin/modifyUsers", "/styles.css", "/gogDames_war/admin/mainPage", "/mainPage").permitAll()
+                .antMatchers( "/success","/cancel","/gogDames_war/login","/registeruser", "/verify", "/verification/{id}", "/style2.css", "/register", "/login.js", "/admin/nav", "/admin/modifyGames", "/admin/modifyUsers", "/styles.css", "/gogDames_war/admin/mainPage", "/mainPage").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/")
                 .permitAll()
                 .loginProcessingUrl("/gogDames_war/login")
-                .defaultSuccessUrl("/admin/mainPage", true);
+                .defaultSuccessUrl("/success", true);
     }
 
     @Override

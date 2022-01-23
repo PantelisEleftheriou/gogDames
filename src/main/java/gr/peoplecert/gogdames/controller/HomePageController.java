@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 import java.io.UnsupportedEncodingException;
+import java.util.Optional;
 
 @Controller
 public class HomePageController {
@@ -32,6 +33,10 @@ public class HomePageController {
         mm.addAttribute("newuser", new User());
         return "register";
     }
+    @GetMapping("/success")
+    public String successPage() {
+        return "success";
+    }
 
     @PostMapping("/registeruser")
     public String registerUser(@ModelAttribute("newuser") User user, ModelMap model, HttpServletRequest request) throws MessagingException, UnsupportedEncodingException, javax.mail.MessagingException {
@@ -47,11 +52,18 @@ public class HomePageController {
     }
 
 
-    @GetMapping("/verification")
-    @ResponseBody
-    public String verified(ModelMap mm,  User user) {
-        mm.addAttribute("verifyuser", user);
+    @GetMapping("/verification/{id}")
+    public String verified(int id, String authcode) {
 
-        return "Your Registation completed!!!";
+        Optional<User> user = service.getUserById(id);
+
+        if (user.get().getVerificationCode().equals(authcode)) {
+            user.get().setRegistered(true);
+            return "verificationConfirm";
+        } else {
+            return "verify";
+        }
+
+
     }
 }
