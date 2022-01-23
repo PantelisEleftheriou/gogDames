@@ -63,23 +63,24 @@
         </nav>
         <div class="main container">
             <div>
-            <a href="${pageContext.request.contextPath}/game/shooter">
+            <a href="${pageContext.request.contextPath}/tetris">
                 <img src="${pageContext.request.contextPath}/img/download.png">
             </a>
             <a><b>Our classic game, To play with your friends or to make new ones!</b></a>
             </div>
             <div>
-            <a href="${pageContext.request.contextPath}/game/shooter">
+            <a href="${pageContext.request.contextPath}/tictactoe">
                 <img src="${pageContext.request.contextPath}/img/download.png">
             </a>
             <a><b>Our classic game, To play with your friends or to make new ones!</b></a>
             </div>
             <div>
-            <a href="${pageContext.request.contextPath}/game/shooter">
+            <a href="${pageContext.request.contextPath}/pong">
                 <img src="${pageContext.request.contextPath}/img/download.png">
             </a>
             <a><b>Our classic game, To play with your friends or to make new ones!</b></a>
             </div>
+                <%--<%@ include file="chat.jsp" %>--%>
         </div>
     </body>
 </html>

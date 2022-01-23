@@ -14,6 +14,7 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.sql.DataSource;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -32,14 +33,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers( "/success","/cancel","/gogDames_war/login","/registeruser", "/verify", "/verification/{id}", "/style2.css", "/register", "/login.js", "/admin/nav", "/admin/modifyGames", "/admin/modifyUsers", "/styles.css", "/gogDames_war/admin/mainPage", "/mainPage").permitAll()
+                .antMatchers( "/success","/cancel","/gogDames_war/login","/registeruser", "/verify", "/verification/{id}", "/style2.css", "/register", "/login.js").permitAll()
+                .antMatchers( "/admin/nav", "/admin/**").hasAuthority("ADMIN")
+                .antMatchers( "/home", "/settings", "/tic.js", "/tetris.js", "/tetris", "/tictactoe").hasAuthority("USER")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/")
                 .permitAll()
                 .loginProcessingUrl("/gogDames_war/login")
-                .defaultSuccessUrl("/success", true);
+                .successHandler(new CustomAuthenticationSuccessHandler());
     }
 
     @Override
@@ -51,4 +54,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder bCryptPasswordEncoder() {
         return NoOpPasswordEncoder.getInstance();
     }
+    
 }

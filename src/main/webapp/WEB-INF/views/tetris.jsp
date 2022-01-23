@@ -14,10 +14,10 @@
 
     <!-- CSS file Included -->
     <link rel="stylesheet"
-          type="text/css" href="tetris.css">
+          type="text/css" href="../css/tetris.css">
 
     <!-- JavaScript file included -->
-    <script src="tetris.js"></script>
+    <script src="../js/tetris.js"></script>
 </head>
 
 <body>

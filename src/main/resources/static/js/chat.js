@@ -2,7 +2,6 @@ const url = 'http://localhost:8080';
 let stompClient;
 let selectedUser;
 let newMessages = new Map();
-
 function connectToChat(userName) {
     console.log("connecting to chat...")
     let socket = new SockJS(url + '/chat');
@@ -20,14 +19,12 @@ function connectToChat(userName) {
         });
     });
 }
-
 function sendMsg(from, text) {
     stompClient.send("/app/chat/" + selectedUser, {}, JSON.stringify({
         fromLogin: from,
         message: text
     }));
 }
-
 function registration() {
     let userName = document.getElementById("userName").value;
     $.get(url + "/registration/" + userName, function (response) {
@@ -38,7 +35,6 @@ function registration() {
         }
     })
 }
-
 function selectUser(userName) {
     console.log("selecting users: " + userName);
     selectedUser = userName;
@@ -51,7 +47,6 @@ function selectUser(userName) {
     $('#selectedUserId').html('');
     $('#selectedUserId').append('Chat with ' + userName);
 }
-
 function fetchAll() {
     $.get(url + "/fetchAllUsers", function (response) {
         let users = response;

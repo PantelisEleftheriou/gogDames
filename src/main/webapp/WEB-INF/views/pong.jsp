@@ -14,7 +14,7 @@
     <meta name="viewport" content=
             "width=device-width, initial-scale=1.0">
     <title>PONG GAME</title>
-    <link rel="stylesheet" href="pong.css">
+    <link rel="stylesheet" href="../css/pong.css">
 </head>
 
 <body>
@@ -31,7 +31,7 @@
     </h1>
 </div>
 
-<script src="pong.js"></script>
+<script src="../js/pong.js"></script>
 </body>
 
 </html>
