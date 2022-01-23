@@ -28,6 +28,7 @@
         <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
         <title>Admin Page</title>
         <link rel="stylesheet" type="text/css" href="../css/styles.css"/>
+        <script src="../js/app.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg py-3 px-4 auto-hiding-navbar fixed-top">
@@ -63,24 +64,37 @@
         </nav>
         <div class="main container">
             <div>
-            <a href="${pageContext.request.contextPath}/tetris">
-                <img src="${pageContext.request.contextPath}/img/download.png">
-            </a>
-            <a><b>Our classic game, To play with your friends or to make new ones!</b></a>
+                <a href="${pageContext.request.contextPath}/tetris">
+                    <img src="${pageContext.request.contextPath}/img/download.png">
+                </a>
+                <a><b>Our classic game, To play with your friends or to make new ones!</b></a>
             </div>
             <div>
-            <a href="${pageContext.request.contextPath}/tictactoe">
-                <img src="${pageContext.request.contextPath}/img/download.png">
-            </a>
-            <a><b>Our classic game, To play with your friends or to make new ones!</b></a>
+                <a href="${pageContext.request.contextPath}/tictactoe">
+                    <img src="${pageContext.request.contextPath}/img/download.png">
+                </a>
+                <a><b>Our classic game, To play with your friends or to make new ones!</b></a>
             </div>
             <div>
-            <a href="${pageContext.request.contextPath}/pong">
-                <img src="${pageContext.request.contextPath}/img/download.png">
-            </a>
-            <a><b>Our classic game, To play with your friends or to make new ones!</b></a>
+                <a href="${pageContext.request.contextPath}/pong">
+                    <img src="${pageContext.request.contextPath}/img/download.png">
+                </a>
+                <a><b>Our classic game, To play with your friends or to make new ones!</b></a>
             </div>
-                <%--<%@ include file="chat.jsp" %>--%>
+            <div>
+                <a class="nav-link" href="${pageContext.request.contextPath}/payment/" + ${request.getParameter}>Buy VIP</a>
+            </div>
+            <div>
+                <textarea id="chat" cols="20"></textarea>
+                <button id="Send">Ask</button>
+                <button id="Close Chat">Leave</button>
+                <div>
+                    <ul id="chathistory">
+                    </ul>
+                </div>
+            </div>    
         </div>
+            <script>
+            </script>
     </body>
 </html>
