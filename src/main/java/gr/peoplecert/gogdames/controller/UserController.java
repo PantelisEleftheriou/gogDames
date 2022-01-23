@@ -18,21 +18,20 @@ public class UserController {
     @Autowired
     UserServiceInterface userServiceInterface;
 
-
     @GetMapping("/registration/{userName}")
     public ResponseEntity<Void> register(@PathVariable String userName) {
         System.out.println("Handling resistered user request with " + userName);//Debugging Purpose
         //Handling registered user request with userName?
-       try {
+        try {
         } catch (Exception exception) {
             return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.ok().build();    
+        return ResponseEntity.ok().build();
     }
 
     //TODO Get All users to the chat.
     @GetMapping("/getAllUsers")
-    public List<User> getAllUsers(){
+    public List<User> getAllUsers() {
         return userServiceInterface.findAll();
     }
 }
